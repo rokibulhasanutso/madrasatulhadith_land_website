@@ -12,7 +12,22 @@ const NewResultCreate = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(0);
 
-  // store;
+  // const handleUpate = (id, marks) => {
+  //   fetch(`https://sheetdb.io/api/v1/58f61be4dda40/id/${id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       data: {
+  //         [searchParams.get("subject")]: marks,
+  //       },
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // };
 
   return (
     <div>
@@ -38,7 +53,7 @@ const NewResultCreate = () => {
                   <p>নামঃ {data.stu_name}</p>
                   <p>রোলঃ {data.roll}</p>
                 </div>
-                <p>প্রাপ্ত নম্বরঃ {data.stu_name}</p>
+                <p>প্রাপ্ত নম্বরঃ {data.obtained_marks}</p>
               </div>
             ))}
         </div>
@@ -80,7 +95,10 @@ const NewResultCreate = () => {
                 <div className="flex flex-col gap-y-2.5 max-w-3xs w-full my-5 mx-auto">
                   <h2 className="text-center">প্রাপ্ত নম্বর যুক্ত করুন</h2>
 
-                  <TextInput placeholder={"প্রাপ্ত নম্বর"} onChange={() =>{}} />
+                  <TextInput
+                    placeholder={"প্রাপ্ত নম্বর"}
+                    onChange={() => {}}
+                  />
 
                   <button
                     onClick={() => {}}
