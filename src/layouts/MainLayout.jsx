@@ -7,9 +7,15 @@ const MainLayout = () => {
       <header className="border-b border-slate-300">
         <div className="container flex justify-center items-center py-4">
           <div>
-            <img src="/src/assets/logo.jpg" alt="logo" className="size-10 md:size-12" />
+            <img
+              src="./../assets/logo.jpg"
+              alt="logo"
+              className="size-10 md:size-12"
+            />
           </div>
-          <h1 className="text-2xl md:text-3xl ms-3.5 md:ms-2.5">Madrasatul Hadis</h1>
+          <h1 className="text-2xl md:text-3xl ms-3.5 md:ms-2.5">
+            Madrasatul Hadis
+          </h1>
         </div>
       </header>
 
