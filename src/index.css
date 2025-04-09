@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'tiro-bangla';
+  src: url('./assets/fonts/TiroBangla-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'galada';
+  src: url('./assets/fonts/Galada-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --font-bangla: "tiro-bangla", "serif"; 
+  --font-galada: "galada", "cursive"; 
+}
+
 @layer utilities {
   .container{
     @apply max-w-7xl mx-auto px-4;

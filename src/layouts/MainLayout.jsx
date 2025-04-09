@@ -13,8 +13,8 @@ const MainLayout = () => {
               className="size-10 md:size-12"
             />
           </div>
-          <h1 className="text-2xl md:text-3xl ms-3.5 md:ms-2.5">
-            Madrasatul Hadis
+          <h1 className="text-2xl md:text-3xl ms-3.5 md:ms-2.5 font-galada">
+            মাদ্‌রাসাতুল হাদিস
           </h1>
         </div>
       </header>
