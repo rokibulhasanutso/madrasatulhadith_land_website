@@ -32,6 +32,11 @@ const Result = () => {
       </div>
 
       {/* content */}
+      <div className="space-y-8">
+        {Array.from({ length: 158 }).map((_, index) => (
+          <div key={index} className="w-[210mm] h-[297mm] border mx-auto"></div>
+        ))}
+      </div>
 
       {/* modal */}
       {modalOpen && (

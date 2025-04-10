@@ -32,7 +32,7 @@ const getExistingMark = (data, subjectKey, mainDataUpdate) => {
 const NewResultCreate = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { store } = useDataStore();
+  const { store, refresh } = useDataStore();
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(0);
   const [modalData, setModalData] = useState(null);
@@ -73,6 +73,7 @@ const NewResultCreate = () => {
 
     if (data?.length) {
       setPreUploadModal((prev) => ({ ...prev, content: "success" }));
+      refresh();
     } else if (error) {
       setPreUploadModal((prev) => ({ ...prev, content: "error" }));
     }

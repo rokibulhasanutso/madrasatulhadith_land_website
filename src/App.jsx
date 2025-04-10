@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import MainLayout from "./layouts/MainLayout";
 import Result from "./pages/Result";
 import NewResultCreate from "./pages/NewResultCreate";
+import PDFPage from "./pages/PDFPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               <Route path="create" element={<NewResultCreate />} />
             </Route>
           </Route>
+          <Route path="/pdf" element={<PDFPage />} />
           <Route path="*" element={<p>This page is not found</p>} />
         </Routes>
       </BrowserRouter>
