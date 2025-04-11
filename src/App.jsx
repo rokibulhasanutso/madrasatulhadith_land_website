@@ -3,7 +3,9 @@ import Home from "./pages/Home";
 import MainLayout from "./layouts/MainLayout";
 import Result from "./pages/Result";
 import NewResultCreate from "./pages/NewResultCreate";
-import PDFPage from "./pages/PDFPage";
+import ResultSheetLayout from "./layouts/ResultSheetLayout";
+import ResultPrint from "./pages/TestToPrintResultSheet";
+import PrintResultSheet from "./pages/PrintResultSheet";
 
 const App = () => {
   return (
@@ -18,9 +20,23 @@ const App = () => {
             <Route path="/result">
               <Route index element={<Result />} />
               <Route path="create" element={<NewResultCreate />} />
+              <Route
+                path="/result/sheet/print"
+                element={<PrintResultSheet />}
+              />
             </Route>
           </Route>
-          <Route path="/pdf" element={<PDFPage />} />
+          <Route
+            path="/result-sheet"
+            element={
+              <>
+                {Array.from({ length: 1 }).map((_, index) => (
+                  <ResultSheetLayout key={index} />
+                ))}
+              </>
+            }
+          />
+          <Route path="/result-print" element={<ResultPrint />} />
           <Route path="*" element={<p>This page is not found</p>} />
         </Routes>
       </BrowserRouter>

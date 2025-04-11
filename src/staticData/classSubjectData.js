@@ -8,6 +8,16 @@ export const classCode = {
   7: "পঞ্চম",
 };
 
+export const classCodeByLebel = {
+  1: "প্লে",
+  2: "নার্সারি",
+  3: "প্রথম",
+  4: "দ্বিতীয়",
+  5: "তৃতীয়",
+  6: "চতুর্থ",
+  7: "পঞ্চম",
+};
+
 export const subjectData = {
   101: "বাংলা",
   102: "ইংরেজি",

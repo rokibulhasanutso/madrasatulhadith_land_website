@@ -112,14 +112,14 @@ const NewResultCreate = () => {
               >
                 <div className="flex justify-between">
                   <p>নামঃ {data.stu_name}</p>
-                  <p>রোলঃ {data.roll}</p>
+                  <p>
+                    প্রাপ্ত নম্বরঃ{" "}
+                    <span className="font-sans">
+                      {getExistingMark(data, subjectKey, mainDataUpdate)}
+                    </span>
+                  </p>
                 </div>
-                <p>
-                  প্রাপ্ত নম্বরঃ{" "}
-                  <span className="font-sans">
-                    {getExistingMark(data, subjectKey, mainDataUpdate)}
-                  </span>
-                </p>
+                <p>রোলঃ {data.roll}</p>
               </div>
             ))}
         </div>

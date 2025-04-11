@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "../components/Modal";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft, X } from "lucide-react";
+import { ChevronLeft, Printer, X } from "lucide-react";
 import {
   classBySubjectCode,
   subjectData,
@@ -15,13 +15,19 @@ const Result = () => {
   const [selectSubject, setSelectSubject] = useState(0);
   const navigate = useNavigate();
 
-  // const
-
   return (
     <div>
       <div className="flex justify-between my-2">
         <h1 className="text-xl font-semibold">Result page</h1>
-        <div>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => navigate("/result/sheet/print?class_code=0")}
+            className="px-3 py-1.5 flex gap-2 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
+          >
+            <Printer />
+            <span>Print Result Sheet</span>
+          </button>
+
           <button
             onClick={() => setModalOpen(true)}
             className="px-3 py-1.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
@@ -32,11 +38,6 @@ const Result = () => {
       </div>
 
       {/* content */}
-      {/* <div className="space-y-8">
-        {Array.from({ length: 158 }).map((_, index) => (
-          <div key={index} className="w-[210mm] h-[297mm] border mx-auto"></div>
-        ))}
-      </div> */}
 
       {/* modal */}
       {modalOpen && (
