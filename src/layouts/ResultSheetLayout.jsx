@@ -13,7 +13,7 @@ const ResultSheetLayout = ({ data }) => {
           <div className="text-center">
             <div className="relative">
               <img
-                src="/src/assets/logo-transparent.png"
+                src="../assets/logo-transparent.png"
                 alt="logo"
                 className="w-24 absolute -top-2"
               />
@@ -148,7 +148,7 @@ const ResultSheetLayout = ({ data }) => {
             <div className="text-xs text-center self-end mx-4 w-[120px]">
               <div className="flex justify-center">
                 <img
-                  src="/src/assets/authorizer-singnature.png"
+                  src="../assets/authorizer-singnature.png"
                   alt="authorizer-singnature"
                   className="w-[120] contrast-100"
                 />
