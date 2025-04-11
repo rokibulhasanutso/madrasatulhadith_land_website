@@ -27,6 +27,13 @@ const Result = () => {
             <Printer />
             <span>Print Result Sheet</span>
           </button>
+          <button
+            onClick={() => navigate("/result/sheet/office-print")}
+            className="px-3 py-1.5 flex gap-2 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
+          >
+            <Printer />
+            <span>Print Result office docs</span>
+          </button>
 
           <button
             onClick={() => setModalOpen(true)}

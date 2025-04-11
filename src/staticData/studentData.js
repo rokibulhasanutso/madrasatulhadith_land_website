@@ -7,7 +7,7 @@ import {
 import { subjectMark } from "./subjectMarksData";
 
 export function processStudentResult(data) {
-  const classCode = data.class_code;
+  const classCode = data?.class_code;
   const subjectCodes = GetSubjectCodeByClass[classCode] || [];
 
   let totalMarks = 0;
@@ -49,6 +49,7 @@ export function processStudentResult(data) {
   }
 
   return {
+    id: data.id,
     stu_name: data.stu_name,
     class: classCodeByLebel[classCode],
     roll: data.roll,

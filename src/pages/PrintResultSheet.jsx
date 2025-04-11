@@ -10,7 +10,6 @@ const PrintResultSheet = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const classCode = searchParams.get("class_code");
-  // const classCodeLabel = classCodeSubject[searchParams.get("class_code")];
   const [selectClass, setSelectClass] = useState(0);
   const { store } = useDataStore();
   const [data, setData] = useState([]);

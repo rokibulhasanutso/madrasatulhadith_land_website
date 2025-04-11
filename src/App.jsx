@@ -6,6 +6,7 @@ import NewResultCreate from "./pages/NewResultCreate";
 import ResultSheetLayout from "./layouts/ResultSheetLayout";
 import ResultPrint from "./pages/TestToPrintResultSheet";
 import PrintResultSheet from "./pages/PrintResultSheet";
+import ResultSheetOfficeLayout from "./layouts/ResultSheetOfficeLayout";
 
 const App = () => {
   return (
@@ -23,6 +24,10 @@ const App = () => {
               <Route
                 path="/result/sheet/print"
                 element={<PrintResultSheet />}
+              />
+              <Route
+                path="/result/sheet/office-print"
+                element={<ResultSheetOfficeLayout />}
               />
             </Route>
           </Route>
