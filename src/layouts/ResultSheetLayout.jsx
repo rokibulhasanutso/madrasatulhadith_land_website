@@ -13,7 +13,7 @@ const ResultSheetLayout = ({ data }) => {
           <div className="text-center">
             <div className="relative">
               <img
-                src="../assets/logo-transparent.png"
+                src="../assets/logo-transparent.jpg"
                 alt="logo"
                 className="w-24 absolute -top-2"
               />
@@ -148,9 +148,9 @@ const ResultSheetLayout = ({ data }) => {
             <div className="text-xs text-center self-end mx-4 w-[120px]">
               <div className="flex justify-center">
                 <img
-                  src="../assets/authorizer-singnature.png"
+                  src="./../assets/authorizer-singnature.jpg"
                   alt="authorizer-singnature"
-                  className="w-[120] contrast-100"
+                  className="w-[120px] contrast-100"
                 />
               </div>
               <p>জাহাঙ্গীর সরকার</p>
