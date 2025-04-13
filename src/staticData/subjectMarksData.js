@@ -5,6 +5,9 @@ export const subjectMark = {
   1: {
     118: 25,
   },
+  7: {
+    115: 50,
+  },
 };
 
 // // ei object data ami function e input dibo
@@ -57,7 +60,7 @@ export const subjectMark = {
 //   ]
 // }
 
-// // এখানে result details er khettre class_code diye subject_code ber korte hobe. 
+// // এখানে result details er khettre class_code diye subject_code ber korte hobe.
 // // orthat class_code 6, subject_code 101, 102, 103, 104, .. erokom ekta array thakbe.
 // // sei array thke ekekti subject_code niye result_details tori korte hobe
 
@@ -118,6 +121,4 @@ export const subjectMark = {
 // // total_full_marks hobe subject full Mark er total full mark
 // // total_obtained_marks hobe subject obtained mark er total obtained mark
 
-
-// // ekhon amake uporer information onujayi ekta function toiri kore dau 
-
+// // ekhon amake uporer information onujayi ekta function toiri kore dau
