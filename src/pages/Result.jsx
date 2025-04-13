@@ -24,15 +24,13 @@ const Result = () => {
             onClick={() => navigate("/result/sheet/print?class_code=0")}
             className="px-3 py-1.5 flex gap-2 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
           >
-            <Printer />
-            <span>Print Result Sheet</span>
+            <span>Result Transcript</span>
           </button>
           <button
             onClick={() => navigate("/result/sheet/office-print")}
             className="px-3 py-1.5 flex gap-2 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
           >
-            <Printer />
-            <span>Print Result office docs</span>
+            <span>ALL Result</span>
           </button>
 
           <button

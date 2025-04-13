@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { processStudentResult } from "../staticData/studentData";
+import { useRef } from "react";
+import { processStudentResult } from "../utils/result_management";
 import { useDataStore } from "../contextAPI/DataStore";
 import { useReactToPrint } from "react-to-print";
 import { FileSpreadsheet, Printer } from "lucide-react";
@@ -8,18 +8,12 @@ import { enToBnNumber } from "../utils/utils";
 
 const ResultSheetOfficeLayout = () => {
   const { store } = useDataStore();
-  const [data, setData] = useState();
 
   const classData = (classCode) => {
     const data = store?.filter((data) => data.class_code === classCode);
     const processData = data?.map((data) => processStudentResult(data));
     return processData?.sort((a, b) => a.id - b.id);
   };
-
-  useEffect(() => {
-    const data = classData(5);
-    setData(data);
-  }, [store]);
 
   // for print case
   const contentRef = useRef();
@@ -47,55 +41,53 @@ const ResultSheetOfficeLayout = () => {
       </div>
 
       <div>
-        <div ref={contentRef} className="m-8" style={{ page: "A4" }}>
-          <div>
-            {Array.from({ length: 7 }).map((_, i) => (
-              <>
-                <div className="my-4 mt-28 first:mt-0">
-                  <h1 className="text-3xl text-center font-galada my-2">
-                    মাদ্‌রাসাতুল হাদিস
-                  </h1>
-                  <p className="text-center">
-                    প্রথম সাময়িক পরীক্ষার ফলাফল - ২০২৫ইং
-                  </p>
-                </div>
-                <p className="text-center text-xl my-4 underline">
-                  {classCodeByLebel[i + 1]} শ্রেণী
+        <div ref={contentRef}>
+          {Array.from({ length: 7 }).map((_, i) => (
+            <div className="px-8 py-10 first:pt-0">
+              <div className="my-4 mt-28 first:mt-0">
+                <h1 className="text-3xl text-center font-galada my-2">
+                  মাদ্‌রাসাতুল হাদিস
+                </h1>
+                <p className="text-center">
+                  প্রথম সাময়িক পরীক্ষার ফলাফল - ২০২৫ইং
                 </p>
-                <table
-                  key={i}
-                  className="text-center font-bangla text-[11px] font-normal border-collapse **:border **:border-gray-400 **:px-1 **:py-0.5 w-full"
-                >
-                  <thead>
-                    <tr className="*:w-[calc(100%/14)]">
-                      <th>রোল</th>
-                      <th>নাম</th>
-                      {classData(i + 1)?.[0]?.result_details?.map(
-                        (data, index) => (
-                          <th key={index}>{data.subject}</th>
-                        )
-                      )}
-                      <th>মোট নম্বর</th>
-                      <th>গ্রেড</th>
+              </div>
+              <p className="text-center text-xl my-4 underline">
+                {classCodeByLebel[i + 1]} শ্রেণী
+              </p>
+              <table
+                key={i}
+                className="text-center font-bangla text-[11px] font-normal border-collapse **:border **:border-gray-400 **:px-1 **:py-0.5 w-full"
+              >
+                <thead>
+                  <tr className="*:w-[calc(100%/14)]">
+                    <th>রোল</th>
+                    <th>নাম</th>
+                    {classData(i + 1)?.[0]?.result_details?.map(
+                      (data, index) => (
+                        <th key={index}>{data.subject}</th>
+                      )
+                    )}
+                    <th>মোট নম্বর</th>
+                    <th>গ্রেড</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {classData(i + 1)?.map((item, index) => (
+                    <tr key={index}>
+                      <td>{enToBnNumber(item.roll)}</td>
+                      <td>{item.stu_name}</td>
+                      {item.result_details?.map((data, index) => (
+                        <td key={index}>{enToBnNumber(data.obtain_mark)}</td>
+                      ))}
+                      <td>{enToBnNumber(item.total_marks)}</td>
+                      <td>{item.grade}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {classData(i + 1)?.map((item, index) => (
-                      <tr key={index}>
-                        <td>{item.roll}</td>
-                        <td>{item.stu_name}</td>
-                        {item.result_details?.map((data, index) => (
-                          <td key={index}>{enToBnNumber(data.obtain_mark)}</td>
-                        ))}
-                        <td>{enToBnNumber(item.total_marks)}</td>
-                        <td>{item.grade}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </>
-            ))}
-          </div>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
         </div>
       </div>
     </>

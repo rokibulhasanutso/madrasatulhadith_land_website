@@ -1,10 +1,8 @@
 import React from "react";
 import { enToBnNumber } from "../utils/utils";
-import { processStudentResult } from "../staticData/studentData";
+import { getBanglaPlacement } from "../utils/result_management";
 
 const ResultSheetLayout = ({ data }) => {
-  const processData = processStudentResult(data);
-
   return (
     <div className="w-[220mm] h-[311mm] mx-auto bg-[url(/src/assets/pattern-image/pattern-1.jpg)] p-9 bg-center bg-cover grayscale-100">
       <div className="bg-[url(/src/assets/pattern-image/pattern-3.jpg)] bg-repeat-y bg-center bg-cover h-full grayscale-100 brightness-[112.5%]">
@@ -31,27 +29,27 @@ const ResultSheetLayout = ({ data }) => {
                   <tbody className="**:w-1/2">
                     <tr>
                       <td>শিক্ষার্থীর নামঃ</td>
-                      <td>{processData.stu_name}</td>
+                      <td>{data.stu_name}</td>
                     </tr>
                     <tr>
                       <td>রোলঃ</td>
-                      <td>{processData.roll}</td>
+                      <td>{enToBnNumber(data.roll).padStart(2, "০")}</td>
                     </tr>
                     <tr>
                       <td>শ্রেণীঃ</td>
-                      <td>{processData.class}</td>
+                      <td>{data.class}</td>
                     </tr>
                     <tr>
                       <td>প্রাপ্ত মোট নম্বরঃ</td>
-                      <td>{enToBnNumber(processData.total_marks)}</td>
+                      <td>{enToBnNumber(data.total_marks)}</td>
                     </tr>
                     <tr>
                       <td>প্রাপ্ত গ্রেডঃ</td>
-                      <td>{processData.grade}</td>
+                      <td>{data.grade}</td>
                     </tr>
                     <tr>
                       <td>স্থান অর্জন</td>
-                      <td>১ম</td>
+                      <td>{getBanglaPlacement(data.placement)}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -113,9 +111,9 @@ const ResultSheetLayout = ({ data }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {processData?.result_details?.map((data, index) => (
+                  {data?.result_details?.map((data, index) => (
                     <tr key={index} className="*:border text-center ">
-                      <td>{index + 1}</td>
+                      <td>{enToBnNumber(index + 1)}</td>
                       <td className="px-4 text-left">{data.subject}</td>
                       <td>{enToBnNumber(data.full_mark)}</td>
                       <td>{enToBnNumber(data.obtain_mark)}</td>
@@ -129,9 +127,9 @@ const ResultSheetLayout = ({ data }) => {
                       colSpan={2}
                       className="!border-l-transparent !border-b-transparent"
                     />
-                    <td>{enToBnNumber(processData?.total_full_marks)}</td>
-                    <td>{enToBnNumber(processData?.total_marks)}</td>
-                    <td>{processData?.grade}</td>
+                    <td>{enToBnNumber(data?.total_full_marks)}</td>
+                    <td>{enToBnNumber(data?.total_marks)}</td>
+                    <td>{data?.grade}</td>
                   </tr>
                 </tbody>
               </table>
@@ -143,7 +141,7 @@ const ResultSheetLayout = ({ data }) => {
             <div className="text-xs">
               <p>প্রতিষ্ঠানের নাম: মাদ্‌রাসাতুল হদিস</p>
               <p>স্থাপিতঃ ২০২০ইং</p>
-              <p>নূরানি ভিত্তিক প্রতিষ্ঠান</p>
+              <p>মাদ্‌রাসা ভিত্তিক প্রতিষ্ঠান</p>
             </div>
             <div className="text-xs text-center self-end mx-4 w-[120px]">
               <div className="flex justify-center">

@@ -1,12 +1,14 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import supabase from "../supabase/config";
+import { processAllResultsWithPlacementByClass } from "../utils/result_management";
 
 // Create Context
 const DataStoreContext = createContext();
 
 // Provider component
 export const DataStoreProvider = ({ children }) => {
-  const [store, setStore] = useState(null);
+  const [store, setStore] = useState([]);
+  const [studentResultData, setStudentResultData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   // get all data
@@ -24,8 +26,15 @@ export const DataStoreProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const studentResultDataMap = processAllResultsWithPlacementByClass(store);
+    setStudentResultData(studentResultDataMap);
+  }, [store]);
+
   return (
-    <DataStoreContext.Provider value={{ store, setStore, loading, refresh }}>
+    <DataStoreContext.Provider
+      value={{ store, setStore, loading, refresh, studentResultData }}
+    >
       {children}
     </DataStoreContext.Provider>
   );

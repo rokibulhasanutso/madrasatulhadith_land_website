@@ -6,6 +6,7 @@ import { useState } from "react";
 import { BadgeAlert, BadgeCheck, ChevronLeft, Loader, X } from "lucide-react";
 import TextInput from "../components/TextInput";
 import supabase from "../supabase/config";
+import { enToBnNumber } from "../utils/utils";
 
 // Helper functions
 const updateMainData = (prev, id, mark, subjectKey) => {
@@ -240,7 +241,7 @@ const NewResultCreate = () => {
                       className="text-lg flex flex-col gap-0.5 odd:bg-gray-100 px-4 py-2.5"
                     >
                       <div className="flex justify-between">
-                        <p>রোলঃ {data.roll}</p>
+                        <p>রোলঃ {enToBnNumber(data.roll)}</p>
                         <p>{data.stu_name}</p>
                         <p>
                           প্রাপ্ত নম্বরঃ{" "}
