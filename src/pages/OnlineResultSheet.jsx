@@ -19,13 +19,13 @@ const OnlineResultSheet = () => {
   }, [examinnerClass, examinnerRoll, studentResultData]);
 
   return (
-    <div>
+    <div className="font-bangla">
       <div className="space-y-8 my-8 flex-1">
         {/* student info details */}
         <div className="flex w-full justify-between">
-          <div className="w-1/2">
+          <div className="w-full md:w-1/2">
             <table className="border-collapse w-full font-semibold text-lg">
-              <tbody className="**:w-1/2">
+              <tbody className="**:md:w-1/2">
                 <tr>
                   <td>শিক্ষার্থীর নামঃ</td>
                   <td>{data?.stu_name}</td>
@@ -60,7 +60,7 @@ const OnlineResultSheet = () => {
           <table className="border-collapse w-full **:py-1 **:border **:border-gray-400 font-medium">
             <thead>
               <tr>
-                <th className="w-[70px]">ক্রঃ নংঃ</th>
+                <th className="w-[60px]">ক্রঃ নংঃ</th>
                 <th>বিষয়</th>
                 <th className="w-[90px]">পূর্ণমান</th>
                 <th className="w-[90px]">প্রাপ্ত নম্বর</th>
