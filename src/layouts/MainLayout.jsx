@@ -23,8 +23,10 @@ const MainLayout = () => {
         <Outlet />
       </main>
 
-      <footer className="container py-2.5 text-center text-sm sm:text-base border-t border-slate-300">
-        All rights reserved by Madrasatul Hadis | since 2025
+      <footer className="text-center text-sm sm:text-base border-t border-slate-300">
+        <div className="container py-2.5">
+          All rights reserved by Madrasatul Hadis | since 2025
+        </div>
       </footer>
     </div>
   );

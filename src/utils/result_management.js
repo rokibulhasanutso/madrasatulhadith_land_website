@@ -72,7 +72,7 @@ export function processStudentResult(data) {
 }
 
 // Step 2: Get Bangla formatted placement
-export function getBanglaPlacement(rank) {
+export function getBanglaPlacement(rank = 0) {
   const banglaDigits = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
   const specialSuffixMap = {
     1: "ম",

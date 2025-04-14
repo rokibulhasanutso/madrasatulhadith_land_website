@@ -7,6 +7,8 @@ import ResultSheetLayout from "./layouts/ResultSheetLayout";
 import ResultPrint from "./pages/TestToPrintResultSheet";
 import PrintResultSheet from "./pages/PrintResultSheet";
 import ResultSheetOfficeLayout from "./layouts/ResultSheetOfficeLayout";
+import OnlineResult from "./pages/OnlineResult";
+import OnlineResultSheet from "./pages/OnlineResultSheet";
 
 const App = () => {
   return (
@@ -14,7 +16,12 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
+            <Route index element={<OnlineResult />} />
+            <Route
+              path="/online-result-sheet"
+              element={<OnlineResultSheet />}
+            />
+            {/* <Route index element={<Home />} />
             <Route path="/office" element={<h1>This page is up comming</h1>} />
             <Route path="/teacher" element={<h1>This page is up comming</h1>} />
             <Route path="/student" element={<h1>This page is up comming</h1>} />
@@ -29,9 +36,9 @@ const App = () => {
                 path="/result/sheet/office-print"
                 element={<ResultSheetOfficeLayout />}
               />
-            </Route>
+            </Route> */}
           </Route>
-          <Route
+          {/* <Route
             path="/result-sheet"
             element={
               <>
@@ -40,8 +47,8 @@ const App = () => {
                 ))}
               </>
             }
-          />
-          <Route path="/result-print" element={<ResultPrint />} />
+          /> */}
+          {/* <Route path="/result-print" element={<ResultPrint />} /> */}
           <Route path="*" element={<p>This page is not found</p>} />
         </Routes>
       </BrowserRouter>
