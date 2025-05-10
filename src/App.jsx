@@ -9,19 +9,33 @@ import PrintResultSheet from "./pages/PrintResultSheet";
 import ResultSheetOfficeLayout from "./layouts/ResultSheetOfficeLayout";
 import OnlineResult from "./pages/OnlineResult";
 import OnlineResultSheet from "./pages/OnlineResultSheet";
+import supabase from "./supabase/config";
+import { useEffect } from "react";
+import MonthlyExamRoutine from "./pages/MonthlyExamRoutine";
+import MonthlyExamResultCreate from "./pages/monthly/MonthlyExamResultCreate";
+import MonthlyInsertResult from "./pages/monthly/MonthlyInsertResult";
 
 const App = () => {
+  const fetchSutdents = async () => {
+    const { data } = await supabase.from("students").select("*");
+    console.log(data.sort((a, b) => a.id - b.id));
+  };
+
+  useEffect(() => {
+    fetchSutdents();
+  }, []);
+
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<OnlineResult />} />
-            <Route
+            {/* <Route
               path="/online-result-sheet"
               element={<OnlineResultSheet />}
             />
-            {/* <Route index element={<Home />} />
+            <Route index element={<Home />} />
             <Route path="/office" element={<h1>This page is up comming</h1>} />
             <Route path="/teacher" element={<h1>This page is up comming</h1>} />
             <Route path="/student" element={<h1>This page is up comming</h1>} />
@@ -37,6 +51,12 @@ const App = () => {
                 element={<ResultSheetOfficeLayout />}
               />
             </Route> */}
+          </Route>
+          <Route path="/monthly-exam-" element={<MainLayout />}>
+            <Route path="routine-sheet" element={<MonthlyExamRoutine />} />
+            <Route path="create-result" element={<MonthlyExamResultCreate />} />
+            <Route path="insert-result" element={<MonthlyInsertResult />} />
+            <Route path="result-sheet" element={<MonthlyExamRoutine />} />
           </Route>
           {/* <Route
             path="/result-sheet"

@@ -23,4 +23,11 @@
   .container{
     @apply max-w-7xl mx-auto px-4;
   }
+
+  .size-A4 {
+    @apply w-[210mm] h-[297mm];
+  }
+  .size-A4-landscape {
+    @apply w-[297mm] h-[210mm];
+  }
 }

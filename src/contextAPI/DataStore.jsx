@@ -14,9 +14,16 @@ export const DataStoreProvider = ({ children }) => {
   // get all data
   const fetchData = async () => {
     setLoading(true);
-    const { data } = await supabase.from("StudentResult").select("*");
+    const { data } = await supabase.from("students").select("*");
     setStore(data);
     setLoading(false);
+  };
+
+  const monthlyExamData = async () => {
+    // setLoading(true);
+    const { data } = await supabase.from("monthly-exam").select("*");
+    setStudentResultData(data);
+    // setLoading(false);
   };
 
   // reload all data
@@ -24,12 +31,13 @@ export const DataStoreProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
+    monthlyExamData();
   }, []);
 
-  useEffect(() => {
-    const studentResultDataMap = processAllResultsWithPlacementByClass(store);
-    setStudentResultData(studentResultDataMap);
-  }, [store]);
+  // useEffect(() => {
+  //   const studentResultDataMap = processAllResultsWithPlacementByClass(store);
+  //   setStudentResultData(studentResultDataMap);
+  // }, [store]);
 
   return (
     <DataStoreContext.Provider

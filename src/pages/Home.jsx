@@ -39,6 +39,13 @@ const Home = () => {
           >
             Result
           </button>
+
+          <button
+            onClick={() => navigate("/monthly-exam-routine")}
+            className={`px-4 py-2.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer`}
+          >
+            Monthly Exam Routine
+          </button>
         </div>
       </div>
     </div>
