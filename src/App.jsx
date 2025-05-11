@@ -9,22 +9,11 @@ import PrintResultSheet from "./pages/PrintResultSheet";
 import ResultSheetOfficeLayout from "./layouts/ResultSheetOfficeLayout";
 import OnlineResult from "./pages/OnlineResult";
 import OnlineResultSheet from "./pages/OnlineResultSheet";
-import supabase from "./supabase/config";
-import { useEffect } from "react";
 import MonthlyExamRoutine from "./pages/MonthlyExamRoutine";
 import MonthlyExamResultCreate from "./pages/monthly/MonthlyExamResultCreate";
 import MonthlyInsertResult from "./pages/monthly/MonthlyInsertResult";
 
 const App = () => {
-  const fetchSutdents = async () => {
-    const { data } = await supabase.from("students").select("*");
-    console.log(data.sort((a, b) => a.id - b.id));
-  };
-
-  useEffect(() => {
-    fetchSutdents();
-  }, []);
-
   return (
     <>
       <BrowserRouter>

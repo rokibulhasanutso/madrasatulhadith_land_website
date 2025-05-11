@@ -10,6 +10,8 @@ const MonthlyExamResultCreate = () => {
   const [selectClass, setSelectClass] = useState(0);
   const [selectSubject, setSelectSubject] = useState(0);
   const navigate = useNavigate();
+  const optionSelected =
+    0 < parseInt(selectClass) && 0 < parseInt(selectSubject);
 
   return (
     <div className="max-w-sm px-4 mx-auto my-10">
@@ -19,7 +21,10 @@ const MonthlyExamResultCreate = () => {
       </h2>
       <div className="flex flex-col items-center gap-3.5">
         <select
-          onChange={(e) => setSelectClass(e.target.value)}
+          onChange={(e) => {
+            setSelectClass(e.target.value);
+            setSelectSubject(0);
+          }}
           className="border border-gray-300 rounded px-4 py-2.5 w-full"
         >
           <option value="0">শ্রেণী নির্বাচন করুন</option>
@@ -45,14 +50,23 @@ const MonthlyExamResultCreate = () => {
         <button
           onClick={() =>
             navigate(
-              `../insert-result?class=${
-                selectClass || null
-              }&subject=${selectSubject || null}`
+              `../insert-result?class=${selectClass || null}&subject=${
+                selectSubject || null
+              }`
             )
           }
-          className={`mt-5 w-full px-4 py-2.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer`}
+          className={`mt-5 w-full px-4 py-2.5 text-white font-semibold bg-emerald-500 disabled:bg-gray-200 disabled:font-medium disabled:text-black/50 rounded cursor-pointer disabled:cursor-not-allowed`}
+          disabled={!optionSelected}
         >
-          তৈরি করুন
+          {optionSelected ? (
+            "তৈরি করুন"
+          ) : (
+            <>
+              {!parseInt(selectClass) && "শ্রেণী"}
+              {!parseInt(selectClass) && !parseInt(selectSubject) && " ও "}
+              {!parseInt(selectSubject) && "বিষয়"} নির্বাচন করুন
+            </>
+          )}
         </button>
       </div>
     </div>

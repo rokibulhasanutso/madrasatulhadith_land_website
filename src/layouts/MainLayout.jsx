@@ -1,7 +1,23 @@
+import { Mail, PhoneCall } from "lucide-react";
 import React from "react";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
+  const phoneNumber = "+8801812410135";
+  const message = "Hello, I am interested in your service.";
+
+  // Call handler
+  const handleCall = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
+
+  // SMS handler
+  const handleSMS = () => {
+    window.location.href = `sms:${phoneNumber}?body=${encodeURIComponent(
+      message
+    )}`;
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-slate-300">
@@ -19,12 +35,18 @@ const MainLayout = () => {
             </h1>
           </div>
 
-          <div>
+          <div className="space-x-2.5">
             <button
-              onClick={() => null}
+              onClick={handleCall}
               className="px-3 py-1.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
             >
-              Menu
+              <PhoneCall />
+            </button>
+            <button
+              onClick={handleSMS}
+              className="px-3 py-1.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
+            >
+              <Mail />
             </button>
           </div>
         </div>
