@@ -53,4 +53,14 @@ export const monthlyExamSubjectCode = {
   7: [901, 902, 903, 906, 907, 908],
 };
 
+export const monthlyExamSubjectMark = {
+  // class_code: {
+  //  subject_code: full_mark
+  // }
+  6: {
+    901: 55,
+    902: 55,
+  },
+};
+
 export const examFee = ["১০০", "১০০", "১৩০", "১৩০", "১৫০", "১৬০", "১৮০"];
