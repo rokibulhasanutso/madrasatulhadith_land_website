@@ -14,6 +14,7 @@ import MonthlyExamResultCreate from "./pages/monthly/MonthlyExamResultCreate";
 import MonthlyInsertResult from "./pages/monthly/MonthlyInsertResult";
 import MonthlyExamResultSheet from "./pages/monthly/MonthlyExamResultSheet";
 import ResultHomePage from "./pages/results/ResultHomePage";
+import ResultOnlineSheet from "./pages/results/ResultOnlineSheet";
 
 const App = () => {
   return (
@@ -43,6 +44,8 @@ const App = () => {
               />
             </Route> */}
           </Route>
+
+
           <Route path="/monthly-exam-">
             <Route path="routine-sheet" element={<MonthlyExamRoutine />} />
             <Route path="create-result" element={<MonthlyExamResultCreate />} />
@@ -60,7 +63,9 @@ const App = () => {
             }
           /> */}
           {/* <Route path="/result-print" element={<ResultPrint />} /> */}
-          <Route path="/results" element={<ResultHomePage/>} />
+          <Route path="/results" element={<ResultHomePage />} />
+          <Route path="/test-result-sheet" element={<ResultOnlineSheet />} />
+          
           <Route path="*" element={<p>This page is not found</p>} />
         </Routes>
       </BrowserRouter>

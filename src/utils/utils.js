@@ -17,30 +17,32 @@ export const objectToTotalMarks = (marks_object) =>
     0
   );
 
-export const getGrade = (fullMark, number) => {
-  if (fullMark <= 0) return "Invalid full mark";
+// export const getGrade = (fullMark, number) => {
+//   if (fullMark <= 0) return "Invalid full mark";
 
-  const percentage = (number / fullMark) * 100;
+//   const percentage = (number / fullMark) * 100;
 
-  if (percentage >= 80 && percentage <= 100) {
-    return "A+";
-  } else if (percentage >= 70) {
-    return "A";
-  } else if (percentage >= 60) {
-    return "A-";
-  } else if (percentage >= 50) {
-    return "B";
-  } else if (percentage >= 40) {
-    return "C";
-  } else if (percentage >= 33) {
-    return "D";
-  } else if (percentage >= 0) {
-    return "F";
-  } else {
-    return "Invalid number";
-  }
-};
+//   if (percentage >= 80 && percentage <= 100) {
+//     return "A+";
+//   } else if (percentage >= 70) {
+//     return "A";
+//   } else if (percentage >= 60) {
+//     return "A-";
+//   } else if (percentage >= 50) {
+//     return "B";
+//   } else if (percentage >= 40) {
+//     return "C";
+//   } else if (percentage >= 33) {
+//     return "D";
+//   } else if (percentage >= 0) {
+//     return "F";
+//   } else {
+//     return "Invalid number";
+//   }
+// };
 
 export const modifySubjectFullMark = (subjects, code) => {
   return code in subjects ? subjects[code] : 100;
 };
+
+
