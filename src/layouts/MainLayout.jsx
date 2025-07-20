@@ -21,7 +21,7 @@ const MainLayout = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-slate-300">
-        <div className="container flex justify-between items-center py-4">
+        <div className="container flex justify-center items-center py-4">
           <div className="flex items-center">
             <div>
               <img

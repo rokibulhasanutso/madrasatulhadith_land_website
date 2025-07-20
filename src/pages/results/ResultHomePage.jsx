@@ -26,7 +26,7 @@ const ResultHomePage = () => {
   });
 
   return (
-    <>
+    <div className="max-w-[210mm] mx-auto">
       {resultLoading ? (
         <div className="flex justify-center items-center h-screen">
           <div className="flex gap-2">
@@ -45,7 +45,7 @@ const ResultHomePage = () => {
           ))}
         </>
       )}
-    </>
+    </div>
   );
 };
 
