@@ -25,7 +25,7 @@ const MainLayout = () => {
           <div className="flex items-center">
             <div>
               <img
-                src="/src/assets/logo.jpg"
+                src="/logo-transparent.jpg"
                 alt="logo"
                 className="size-10 md:size-12"
               />
@@ -36,7 +36,7 @@ const MainLayout = () => {
           </div>
 
           <div className="space-x-2.5">
-            <button
+            {/* <button
               onClick={handleCall}
               className="px-3 py-1.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
             >
@@ -47,7 +47,7 @@ const MainLayout = () => {
               className="px-3 py-1.5 text-white font-semibold bg-emerald-500 rounded cursor-pointer"
             >
               <Mail />
-            </button>
+            </button> */}
           </div>
         </div>
       </header>
