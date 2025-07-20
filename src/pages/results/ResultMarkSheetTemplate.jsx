@@ -26,6 +26,13 @@ const ResultMarkSheetTemplate = ({ sheetName, data, examName }) => {
             {/* student info details */}
             <div className="flex w-full justify-between">
               <div className="w-2/3">
+                {/* <div className="mb-4">
+                  <img
+                    src={data?.studentImage}
+                    alt="Student Image"
+                    className="size-26 rounded-md ring-2 ring-gray-400 bg-cover bg-top"
+                  />
+                </div> */}
                 <table className="border-collapse w-full font-semibold text-lg">
                   <tbody className="**:w-1/2 ml-2">
                     <tr>
@@ -152,7 +159,7 @@ const ResultMarkSheetTemplate = ({ sheetName, data, examName }) => {
             <div className="text-xs text-center self-end mx-4 w-[120px]">
               <div className="flex justify-center">
                 <img
-                  src="/public/authorizer-singnature.jpg"
+                  src="/authorizer-singnature.jpg"
                   alt="authorizer-singnature"
                   className="w-[120px] contrast-100"
                 />

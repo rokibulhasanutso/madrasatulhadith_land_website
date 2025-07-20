@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import { db } from "../supabase/config.js";
+import { db } from "../supabase/config";
 import {
   SUBJECTS_BY_CLASS,
   SUBJECTS_INFO,
-} from "../staticData/SecondTermExamData.js";
-import { getGrade } from "../utils/secondtermExamFunction.js";
+} from "./../staticData/SecondTermExamData";
+import { getGrade } from "../utils/result_management";
 
-const useResultsData = ({ idParam, classCodeParam, rollParams }) => {
+const useResultsData = ({ idParam, classCodeParam, rollParams } = {}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -59,11 +59,12 @@ const useResultsData = ({ idParam, classCodeParam, rollParams }) => {
         };
       });
 
-      const totalGrade = hasFail
+      const totalGrade = getGrade(fullMarks, totalMarks);
+      let allOverGrade = hasFail
         ? "F"
-        : allAPlus
-        ? "A+"
-        : getGrade(fullMarks, totalMarks);
+        : totalGrade === "A+" && !allAPlus
+        ? "A"
+        : totalGrade;
 
       return {
         id: item.id,
@@ -74,7 +75,7 @@ const useResultsData = ({ idParam, classCodeParam, rollParams }) => {
         studentImage: students?.studentImage || "",
         total_obtained_marks: totalMarks,
         total_full_marks: fullMarks,
-        grade: totalGrade,
+        grade: allOverGrade,
         results: subjectResults,
         created_at: item.created_at,
       };
@@ -101,13 +102,14 @@ const useResultsData = ({ idParam, classCodeParam, rollParams }) => {
     const filtered = studentsWithPlacement.filter((student) => {
       const matchId = isNaN(idParam) || student.id === idParam;
       const matchRoll =
-        rollParams.length === 0 || rollParams.includes(parseInt(student.roll));
+        rollParams?.length === 0 ||
+        rollParams?.includes(parseInt(student.roll));
       const matchClass =
         isNaN(classCodeParam) || student.class_code === classCodeParam;
       return matchId && matchRoll && matchClass;
     });
 
-    setData(filtered);
+    setData(filtered.length > 0 ? filtered : studentsWithPlacement);
     setLoading(false);
   }, [idParam, classCodeParam, rollParams]);
 

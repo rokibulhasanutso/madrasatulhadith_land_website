@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
 import useResultsData from "../../hook/useResultsData";
 import ResultMarkSheetTemplate from "./ResultMarkSheetTemplate";
-import { LoaderCircle, LucideClockFading } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 
 const ResultHomePage = () => {
   const [serachParams] = useSearchParams();
