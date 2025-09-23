@@ -25,43 +25,43 @@ const ResultHomePage = () => {
     rollParams: roll,
   });
 
-  // return (
-  //   <div className="max-w-[210mm] mx-auto">
-  //     {resultLoading ? (
-  //       <div className="flex justify-center items-center h-screen">
-  //         <div className="flex gap-2">
-  //           <LoaderCircle className="animate-spin" />
-  //           <p>অপেক্ষা করুন...</p>
-  //         </div>
-  //       </div>
-  //     ) : (
-  //       <>
-  //         {resultData?.map((data) => (
-  //           <ResultMarkSheetTemplate
-  //             sheetName={""}
-  //             examName={"দ্বিতীয় সাময়িক পরীক্ষা ২০২৫ ইং"}
-  //             data={data}
-  //           />
-  //         ))}
-  //       </>
-  //     )}
-  //   </div>
-  // );
-
   return (
-    <div>
-      <div className="flex justify-center items-center h-screen">
-        <div className="flex flex-col gap-2 text-center">
-          <h1 className="text-4xl font-galada">মাদ্‌রাসাতুল হাদিস</h1>
-          <p>তৃতীয় সাময়িক পরীক্ষা - ২০২৫ইং</p>
-          <p className="my-5">
-            <p>আপানার পরীক্ষার ফলাফল এখনও প্রকাশিত হয়নি।</p>
-            <p>ফলাফল প্রকাশিত হওয়া পর পুনরায় চেষ্টা করুন।</p>
-          </p>
+    <div className="max-w-[210mm] mx-auto">
+      {resultLoading ? (
+        <div className="flex justify-center items-center h-screen">
+          <div className="flex gap-2">
+            <LoaderCircle className="animate-spin" />
+            <p>অপেক্ষা করুন...</p>
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          {resultData?.map((data) => (
+            <ResultMarkSheetTemplate
+              sheetName={""}
+              examName={"তৃতীয় সাময়িক পরীক্ষা ২০২৫ ইং"}
+              data={data}
+            />
+          ))}
+        </>
+      )}
     </div>
   );
+
+  // return (
+  //   <div>
+  //     <div className="flex justify-center items-center h-screen">
+  //       <div className="flex flex-col gap-2 text-center">
+  //         <h1 className="text-4xl font-galada">মাদ্‌রাসাতুল হাদিস</h1>
+  //         <p>তৃতীয় সাময়িক পরীক্ষা - ২০২৫ইং</p>
+  //         <p className="my-5">
+  //           <p>আপানার পরীক্ষার ফলাফল এখনও প্রকাশিত হয়নি।</p>
+  //           <p>ফলাফল প্রকাশিত হওয়া পর পুনরায় চেষ্টা করুন।</p>
+  //         </p>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default ResultHomePage;

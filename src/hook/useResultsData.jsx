@@ -14,7 +14,7 @@ const useResultsData = ({ idParam, classCodeParam, rollParams } = {}) => {
     setLoading(true);
 
     const { data: resultData, error } = await db
-      .from("resultTest")
+      .from("thirdTermExamResult")
       .select(
         `id, created_at,
          students(id, studentName, roll, studentImage, classes(classLabel, class_code)),
