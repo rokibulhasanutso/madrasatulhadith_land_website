@@ -19,7 +19,7 @@ const OnlineResult = () => {
     <div>
       <div className="max-w-[512px] px-4 mx-auto my-10 h-[50svh] flex flex-col justify-center">
         <h1 className="text-center text-lg my-10 flex flex-col">
-          <span>দ্বিতীয় সাময়িক পরীক্ষা - ২০২৫ইং</span>{" "}
+          <span>তৃতীয় সাময়িক পরীক্ষা - ২০২৫ইং</span>{" "}
           <span>ফলাফল প্রকাশিত হয়েছে</span>
         </h1>
         <h2 className="text-center my-4">
