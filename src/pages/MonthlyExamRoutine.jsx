@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import supabase from "../supabase/config";
+import supabase, { db } from "../supabase/config";
 import RoutineLayout from "../layouts/RoutineLayout";
 
 const MonthlyExamRoutine = () => {
@@ -7,7 +7,7 @@ const MonthlyExamRoutine = () => {
   const [groupedData, setGroupedData] = useState([]);
 
   const fetchStudents = async () => {
-    const { data: fetchedData } = await supabase.from("students").select("*");
+    const { data: fetchedData } = await db.from("students").select("*");
 
     if (fetchedData) {
       const sorted = fetchedData.sort((a, b) => a.id - b.id);
@@ -32,7 +32,8 @@ const MonthlyExamRoutine = () => {
   return (
     <div>
       {groupedData?.map((data) => (
-        <div className="size-A4-landscape *:w-1/2 *:p-[1.25cm] flex *:first:border-r *:first:border-dashed *:border-gray-400">
+        // <div className="size-A4-landscape mx-auto *:w-1/2 *:p-[1.25cm] flex *:first:border-r *:first:border-dashed *:border-gray-400">
+        <div className="size-A4-landscape mx-auto *:w-1/2 flex *:border *:border-dashed *:border-gray-400">
           <RoutineLayout data={data[0]} />
           <RoutineLayout data={data[1]} />
         </div>
