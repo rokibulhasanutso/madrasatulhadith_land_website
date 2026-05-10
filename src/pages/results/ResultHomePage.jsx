@@ -50,12 +50,14 @@ const ResultHomePage = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-screen font-bangla">
         <div className="flex flex-col gap-2 text-center">
+          <img src="/public/logo-transparent.jpg" alt="Logo" className="size-32 mx-auto my-3.5" />
           <h1 className="text-4xl font-galada">মাদ্‌রাসাতুল হাদিস</h1>
-          <p>বার্ষিক পরীক্ষা - ২০২৫ইং</p>
-          <p className="my-5">
-            <p>আপানার বার্ষিক পরীক্ষার ফলাফল মাদরাসায় দেওয়া হবে।</p>
+          <p>প্রথম সাময়িক পরীক্ষা - ২০২৬ইং</p>
+          <p className="my-2.5">
+            <p className="font-semibold my-1.5">আপনারদের প্রথম সাময়িক পরীক্ষা শুরু হবে ১৯ মে, ২০২৬ইং</p>
+            <p>পরীক্ষার ফলাফল প্রকাশ হলে মাদরাসা থেকে জানানো হবে।</p>
           </p>
         </div>
       </div>
