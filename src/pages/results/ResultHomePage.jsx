@@ -52,7 +52,7 @@ const ResultHomePage = () => {
     <div>
       <div className="flex justify-center items-center h-screen font-bangla">
         <div className="flex flex-col gap-2 text-center">
-          <img src="/public/logo-transparent.jpg" alt="Logo" className="size-32 mx-auto my-3.5" />
+          <img src="/logo-transparent.jpg" alt="Logo" className="size-32 mx-auto my-3.5" />
           <h1 className="text-4xl font-galada">মাদ্‌রাসাতুল হাদিস</h1>
           <p>প্রথম সাময়িক পরীক্ষা - ২০২৬ইং</p>
           <p className="my-2.5">
